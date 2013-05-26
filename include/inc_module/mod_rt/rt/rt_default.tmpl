@@ -1,0 +1,119 @@
+<div style="margin-top:1em;border:1px solid #F1F1F1;">
+<style type="text/css">
+    .mtit{ border-bottom: 1px solid #F1F1F1; margin-bottom: 1px; padding: 3px 5px; color: #335D81; text-align: right; cursor: pointer; }
+    .sub{ color: #333; font-size: 9px; display: none; }
+    #masterdiv input{ border: none; margin-bottom: 1px; width: 163px; padding-right:3px; background: #FAFAFA; color: #798897; height:15px;font-size: 9px; text-align: right; cursor: pointer; }
+    #masterdiv input:hover{ background: #D9DEE3 }
+    .message{ padding: 2px; background: #FAFAFA; color: #A8A8A8; font-size: 9px; }
+</style>
+<script language="JavaScript" type="text/javascript">
+<!--
+window.addEvent('domready', function() {
+
+    $$('.mtit').addEvent('click', function(){
+        var n = this.nextSibling;
+        while (n && n.nodeType !=1) {
+            n = n.nextSibling;
+        }
+        var el = document.getElementById(n.id);
+        var ar = document.getElementById("masterdiv").getElementsByTagName("span");
+        if(el.style.display != "block"){
+            for (var i=0; i<ar.length; i++){
+                if (ar[i].className=="sub"){
+                    ar[i].style.display = "none";
+                }
+            }
+            el.style.display = "block";
+        }else{
+            el.style.display = "none";
+        }
+    });
+
+    $$('.rt_input').addEvent('click', function(){
+        this.select();
+    });
+
+});
+//-->
+</script>
+  <h1 class="title" style=" padding-left:5px;margin:0 0 3px 0;">Replacement Tags</h1>
+  <div id="masterdiv">
+    <div class="mtit">System &not;</div>
+    <span class="sub" id="s1">
+      <input class="rt_input" title="Display the current date in long format" value="{DATE_LONG}" />
+      <input class="rt_input" title="Display the current date in medium format"  value="{DATE_MEDIUM}" />
+      <input class="rt_input" title="Display the current time in long format" value="{TIME_LONG}" />
+      <input class="rt_input" title="Display the current time in short format" value="{TIME_SHORT}" />
+      <input class="rt_input" title="Display a navigation breadcrumb and indicate the user location within the phpwcms navigational site structure" value="{BREADCRUMB}" />
+      <input class="rt_input" title="Display a navigation breadcrumb and indicate the user location within the phpwcms navigational site structure. By editing the ID Value you can setup the starting point" value="{BREADCRUMB:ID}" />
+      <input class="rt_input" title="The 'content' replacement tag is one of the most important within phpwcms. In effect phpwcms replace this tag with the actual dynamic content of associated articles" value="{CONTENT}" />
+      <input class="rt_input" title="Php code can be be entered directly between the opening and closing brackets" value="[PHP]PHP_code[/PHP]" />
+      <input class="rt_input" title="Call external PHP script" value="{PHP:external.php}" />
+      <input class="rt_input" title="Include external or internal (phpwcms) web page" value="{URL:http://7dana.com}" />
+      <input class="rt_input" title="Create link to 'Add to browser favorites'" value="[BOOKMARK]Add[/BOOKMARK]" />
+      <input class="rt_input" title="Create link to printer friendly page" value="[PRINT]Print[/PRINT]" />
+      <input class="rt_input" title="With this replacement tag you can offer your content as an RSS feed" value="[RSS all]Text[/RSS]" />
+    </span>
+    <div class="mtit">Links &not;</div>
+    <span class="sub" id="s2">
+      <input title="Create a link to the top of the Page" class="rt_input" value="[TOP] Text [/TOP]" />
+      <input title="Create an Back link, based on the javascript:history.back();" class="rt_input" value="[BACK]back[/BACK]" />
+      <input title="Open the visitor's standard email client, and inserts the e-mail adress in the adress field" class="rt_input" value="[MAIL eMail_Adress] Text [/MAIL]" />
+      <input title="Open the visitor's standard email client and inserts the e-mail address and the subject text in the relevant fields" class="rt_input" value="[MAILSUB e@adress subject]Text[/MAIL]" />
+      <input title="Create an List with the last new / edited articles of all structures, by editing the number you can choose how many entries the list should have" class="rt_input" value="{NEW:5}" />
+      <input title="Create an List with the last new / edited articles of one structure, by editing the number you can choose how many entries the list should have" class="rt_input" value="{NEW:5:3}" />
+      <input title="Create an Article titles list, based on custom keywords" class="rt_input" value="{RELATED:list_count_:keyword}" />
+      <input title="Create an external link which opens in a new browser window" class="rt_input" value="[EXT http://site.com]text[/EXT]" />
+      <input title="Create an 'internal' link which opens in current browser window" class="rt_input" value="[INT http://site.com]text[/INT]" />
+      <input title="Create an internal link to a phpwcms article, indicated by article ID" class="rt_input" value="[ID 21]name[/ID]" />
+      <input title="Create an internal link to an 'aliased' site structure entry" class="rt_input" value="[ID alias]Text String[/ID]" />
+      <input title="Add the site URL" class="rt_input" value="{SITE}" />
+      <input title="* CP - list of Content Parts | id = id of the content part, one or more possible, comma seperated." class="rt_input" value="{SHOW_CONTENT:CP,id,id, .......}" />
+      <input title="* CPA - ascending list of Content Parts but based on selected article | id = id of article, comma seperated" class="rt_input" value="{SHOW_CONTENT:CPA,id,id, .....}" />
+      <input title="* CPAD - same as CPA, but descending (this slows rendering)" class="rt_input" value="{SHOW_CONTENT:CPAD,id,id, ..}" />
+    </span>
+    <div class="mtit">Articles &not;</div>
+    <span class="sub" id="s3">
+      <input title="Display the Author of the article" class="rt_input" value="{AUTHOR}" />
+      <input title="Display the construction date of the article" class="rt_input" value="{DATE_ARTICLE}" />
+      <input title="Display the construction time of the article" class="rt_input" value="{TIME_ARTICLE}" />
+      <input title="Format text as Bold" class="rt_input" value="[b]Bold[/b]" />
+      <input title="Format text as italic" class="rt_input" value="[i]Italic[/i]" />
+      <input title="Decorate text as underline" class="rt_input" value="[u]Underline[/u]" />
+      <input title="Insert a single line break" class="rt_input" value="[BR]" />
+    </span>
+    <div class="mtit">Navigation &not;</div>
+    <span class="sub" id="s4">
+      <input title="Create an automatic link to next article within the category" class="rt_input" value="{BROWSE:NEXT:Next:1}" />
+      <input title="Create an automatic link to previous article within the category" class="rt_input" value="{BROWSE:PREV:Previous:1}" />
+      <input title="Create an automatic link to parent category within a given site structure" class="rt_input" value="{BROWSE:UP:Go to Parent}" />
+      <input title="Display a vertical/horizontal navigation menu with css rollover. The menu items are based on site structure categories. Upon clicking a given link, the next set of sub-categories are displayed within the menu itself" class="rt_input" value="{NAV_LIST_UL}" />
+      <input title="The most used parameters of this tag (mentioned see below)" class="rt_input" value="{NAV_LIST_UL:F,ID,,,active}" />
+      <input title="This tag extends the navigational tag (mentioned above) to include the site structure level parameter, which is expressed as an integer. This integer can be found by rolling your cursor over the site structure icons in the admin-site structure section. Using this parameter, menus are generated from this site structure level and below" class="rt_input" value="{NAV_LIST_UL:menu_type,start_id,max_level,class_path,class_active,ul_id_name,wrap_ul_div,wrap_link_text}" />
+      <input title="Display a vertical navigation menu with embedded javascript rollover code. The menu items are based on site structure categories. Upon clicking a given link, the next set of sub-categories are displayed within the menu itself" class="rt_input" value="{NAV_TABLE_COLUMN}" />
+      <input title="This tag extends the navigational tag (mentioned above) to include the site structure level parameter, which is expressed as an integer. This integer can be found by rolling your cursor over the site structure icons in the admin-site structure section. Using this parameter, menus are generated from this site structure level and below" class="rt_input" value="{NAV_TABLE_COLUMN:2}" />
+      <input title="Create horizontal menu based on the 'first level' of any given phpwcms installation's site structure." class="rt_input" value="{NAV_LIST_TOP}" />
+      <input title="This tag, nearly identical to the one listed above, creates a horizontal menu based on the 'first level' site structure with 2 additional options. The first of these is the ability to 'rename' the primary index to a unique/customized name (Indexname). The second allows for additonal formatting options via a call to a CSS class (ClassName)" class="rt_input" value="{NAV_LIST_TOP:IndexName:ClassName}" />
+      <input title="Horizontal menu to display the first menu level, starting with the index page" class="rt_input" value="{NAV_ROW}" />
+      <input title="Horizontal menu to display the menu level below, starting at the actual page" class="rt_input" value="{NAV_ROW:CURRENT:0 or 1}" />
+      <input title="Horizontal menu to display the menu level below, starting below the given category id. Furthermore you can define with 0|1 whether the actual page name shall also be displayed" class="rt_input" value="{NAV_ROW:INT:0 or 1}" />
+      <input title="Vertical menu element. Only categories exactly below the actual menu level or the superordinated can be adressed" class="rt_input" value="{NAV_LIST_CURRENT}" />
+      <input title="Vertical menu element. Only categories exactly below the actual menu level or the superordinated can be adressed. The display of the superordinated level can be suppressed. You can rename the superordinated title" class="rt_input" value="{NAV_LIST_CURRENT:0 or 1:Name:class}" />
+      <input title="Very simple vertical menu element. Only categories bolow the actual level can´be accessed" class="rt_input" value="{NAV_TABLE_SIMPLE}" />
+    </span>
+    <div class="mtit">Images &not;</div>
+    <span class="sub" id="s5">
+      <input title="Insert <img> with the choosen Image file" class="rt_input" value="{IMAGE:image/name}" />
+      <input title="Insert left aligned <img> with the choosen Image file" class="rt_input" value="{IMAGE_LEFT:picture.jpg}" />
+      <input title="Insert right aligned <img> with the choosen Image file" class="rt_input" value="{IMAGE_RIGHT:picture.jpg}" />
+      <input title="Insert radom Images from a specified folder. At every Page request it will be shown a new image" class="rt_input" value="{RANDOM:picture/folder}" />
+      <input title="Insert transparent Image(spacer). Width and height value in px" class="rt_input" value="{SPACER:250x5}" />
+    </span>
+    <div class="mtit">Tools &not;</div>
+    <span class="sub" id="s7">
+      <input title="" class="rt_input" value="{NOSPAM_EMAIL:my@site.com}" />
+      <input title="Display the RSS icon" class="rt_input" value="{RSSIMG}" />
+    </span>
+  </div>
+  <div class="message">1. Click on the Replacement Tag to select it.<br />2. Copy&Paste (CTRL-C & CTRL-V) the value into the textarea.</div>
+</div>
